@@ -53,10 +53,25 @@ test/             <- 61 pruebas
 ## 📸 Evidencias TDD
 
 ### Ronda 2 · Dinero
-🔴 **Rojo:** `porcentaje()` sin `+ 50` trunca en lugar de redondear. La prueba espera 1000 y sale 999.
+🔴 **Rojo (terminal, `flutter test test/dominio_test.dart`):** `porcentaje()` sin `+ 50` trunca en lugar de redondear. Espera 1000 y sale 999.
 ![R2 rojo](capturas/R02_dinero_rojo.jpg)
 
-🟢 **Verde:** con `(centavos * pct + 50) ~/ 100` redondea al centavo y pasan todas.
+🟢 **Verde:** con `(centavos * pct + 50) ~/ 100` redondea al centavo. 61/61.
+![R2 verde](capturas/R02_dinero_verde.jpg)
+
+### Ronda 3 · Carrito
+🔴 **Rojo:** con `>` en vez de `>=`, una compra de $800 justos todavía paga envío (espera 0, sale 9900).
+![R3 rojo](capturas/R03_carrito_rojo.jpg)
+
+🟢 **Verde:** con `>=` el envío es gratis desde $800. 61/61.
+![R3 verde](capturas/R03_carrito_verde.jpg)
+
+### Ronda 5 · Tarjeta (Luhn)
+🔴 **Rojo:** sin `if (n > 9) n -= 9;` el algoritmo de Luhn marca como inválidas tarjetas buenas.
+![R5 rojo](capturas/R05_tarjeta_rojo.jpg)
+
+🟢 **Verde:** con la resta de 9 vuelve a validar bien. 61/61.
+![R5 verde](capturas/R05_tarjeta_verde.jpg)
 
 ---
 
